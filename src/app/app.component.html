@@ -1,14 +1,18 @@
 <div class="container text-center">
-  <div>{{ title }}</div>
+  <h2 class="mb-3 font-weight-bold">{{ title | titlecase }}</h2>
 
   <form>
     <div class="form-check d-flex column ">
       <input
-        class="form-control"
+        class="form-control border border border-warning rounded-5"
         type="text"
         placeholder="Write new Wish Item"
       />
-      <button type="submit" class="btn btn-primary mxö-3">Submit</button>
+      <button
+      (click)="$event.preventDefault();"
+      type="submit" class="btn btn-primary mx-3">
+      Submit
+    </button>
     </div>
 
 
