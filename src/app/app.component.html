@@ -1,6 +1,7 @@
 <div class="container text-center">
   <div>{{title}}</div>
 
+  <form>
   <div *ngIf="items.length ===0;  else showItems">
     No items to display
   </div>
@@ -9,7 +10,14 @@
  <ng-template #showItems>
   <div *ngIf="items.length >0">
     <div  class="d-flex justify-content-start" *ngFor="let item of items; index as ii">
-  <input id="wishlist_checkbox" class="mx-3" type="checkbox" [checked]="item.isComplete" [attr.data-index]="ii"/>
+  <input
+  id="wishlist_checkbox"
+  class="mx-3"
+  type="checkbox"
+  [checked]="item.isComplete"
+  [attr.data-index]="ii"
+  (change)="toggleItem(item)"
+  />
 
     {{item.wishItem}}
 </div>
@@ -19,5 +27,5 @@
 
 
 
-
+</form>
 </div>

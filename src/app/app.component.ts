@@ -17,4 +17,9 @@ export class AppComponent {
     new wishItem("have a tea",true)
   ];
   title = 'whishlist';
+
+  toggleItem(item: wishItem){
+    item.isComplete =!item.isComplete
+console.log(item)
+  }
 }
