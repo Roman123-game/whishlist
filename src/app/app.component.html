@@ -1,37 +1,37 @@
 <div class="container text-center">
-  <div>{{title}}</div>
+  <div>{{ title }}</div>
 
   <form>
-    <div class="form-check">
-      <input class="form-control" type="text" placeholder="Write new Wish Item">
-   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-check d-flex column ">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Write new Wish Item"
+      />
+      <button type="submit" class="btn btn-primary mxö-3">Submit</button>
+    </div>
 
 
-  <div *ngIf="items.length ===0;  else showItems">
-    No items to display
-  </div>
+    <div *ngIf="items.length === 0; else showItems">No items to display</div>
 
+    <ng-template #showItems>
+      <div *ngIf="items.length > 0">
+        <div
+          class="d-flex justify-content-start"
+          *ngFor="let item of items; index as ii"
+        >
+          <input
+            id="wishlist_checkbox"
+            class="mx-3"
+            type="checkbox"
+            [checked]="item.isComplete"
+            [attr.data-index]="ii"
+            (change)="toggleItem(item)"
+          />
 
- <ng-template #showItems>
-  <div *ngIf="items.length >0">
-    <div  class="d-flex justify-content-start" *ngFor="let item of items; index as ii">
-  <input
-  id="wishlist_checkbox"
-  class="mx-3"
-  type="checkbox"
-  [checked]="item.isComplete"
-  [attr.data-index]="ii"
-  (change)="toggleItem(item)"
-  />
-
-    {{item.wishItem}}
-</div>
-</div>
-
- </ng-template>
-
-
-
-</form>
+          {{ item.wishItem }}
+        </div>
+      </div>
+    </ng-template>
+  </form>
 </div>
