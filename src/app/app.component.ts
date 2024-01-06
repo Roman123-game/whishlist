@@ -12,9 +12,9 @@ import { wishItem } from '../shared/wishitems';
 })
 export class AppComponent {
   items: wishItem[] = [
-    // new wishItem("learn angualr",false),
-    // new wishItem("have a cofee",false),
-    // new wishItem("have a tea",true)
+    new wishItem("learn angualr",false),
+    new wishItem("have a cofee",false),
+    new wishItem("have a tea",true)
   ];
   title = 'whishlist';
 }

@@ -1,8 +1,23 @@
 <div class="container text-center">
   <div>{{title}}</div>
-  <div  class="d-flex justify-content-start" *ngFor="let item of items">
-  <input id="wishlist_checkbox" class="mx-3" type="checkbox" checked={{item.isComplete}}/>
+
+  <div *ngIf="items.length ===0;  else showItems">
+    No items to display
+  </div>
+
+
+ <ng-template #showItems>
+  <div *ngIf="items.length >0">
+    <div  class="d-flex justify-content-start" *ngFor="let item of items; index as ii">
+  <input id="wishlist_checkbox" class="mx-3" type="checkbox" [checked]="item.isComplete" [attr.data-index]="ii"/>
 
     {{item.wishItem}}
 </div>
+</div>
+
+ </ng-template>
+
+
+
+
 </div>
