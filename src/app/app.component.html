@@ -2,6 +2,12 @@
   <div>{{title}}</div>
 
   <form>
+    <div class="form-check">
+      <input class="form-control" type="text" placeholder="Write new Wish Item">
+   </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+
   <div *ngIf="items.length ===0;  else showItems">
     No items to display
   </div>
