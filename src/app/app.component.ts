@@ -8,18 +8,18 @@ import { wishItem } from '../shared/wishitems';
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   items: wishItem[] = [
-    new wishItem("learn angualr",false),
-    new wishItem("have a cofee",false),
-    new wishItem("have a tea",true)
+    new wishItem('learn angualr', false),
+    new wishItem('have a cofee', false),
+    new wishItem('have a tea', true),
   ];
   title = 'whishlist';
 
-  toggleItem(item: wishItem){
-    item.isComplete =!item.isComplete
-console.log(item)
+  toggleItem(item: wishItem) {
+    item.isComplete = !item.isComplete;
+    console.log(item);
   }
 }
