@@ -18,12 +18,17 @@ export class AppComponent {
     new wishItem('have a tea', true),
   ];
   title = 'whishlist';
-  wishText = ""
+  wishText = "";
+  filter:string = '0';
 
   addWishes(){
     this.items.push(new wishItem(this.wishText));
     this.wishText = ''
 
+  }
+
+  filterChange(value:any){
+    console.log(value)
   }
 
   toggleItem(item: wishItem) {

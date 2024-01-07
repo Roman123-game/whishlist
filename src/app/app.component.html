@@ -2,22 +2,36 @@
   <h2 class="mb-3 font-weight-bold">{{ title | titlecase }}</h2>
 
   <form>
-    <div class="form-check d-flex column ">
+    <div class="form-check d-flex column">
       <input
-        class="form-control border border border-warning rounded-5"
+        class="form-control border border border-warning rounded-5 mx-0"
         type="text"
         placeholder="Write new Wish Item"
         [(ngModel)]="wishText"
-        [ngModelOptions]="{standalone: true}"
+        [ngModelOptions]="{ standalone: true }"
         name="wish-text"
       />
+
       <button
-      (click)="$event.preventDefault(); addWishes()"
-      type="submit" class="btn btn-primary mx-3">
-      Submit
-    </button>
+        (click)="$event.preventDefault(); addWishes()"
+        type="submit"
+        class="btn btn-primary mx-3"
+      >
+        Submit
+      </button>
     </div>
 
+    <select
+    class="form-select border border border-success rounded-5 w-25"
+    aria-label="Default select example"
+    [(ngModel)]="filter"
+    [ngModelOptions]="{standalone: true}"
+    (ngModelChange)="filterChange($event)"
+    >
+      <option value="0">All</option>
+      <option value="1">Unfullfiled</option>
+      <option value="2">Fullfiled</option>
+    </select>
 
     <div *ngIf="items.length === 0; else showItems">No items to display</div>
 
