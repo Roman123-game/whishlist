@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { wishItem } from '../shared/wishitems';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -17,6 +18,13 @@ export class AppComponent {
     new wishItem('have a tea', true),
   ];
   title = 'whishlist';
+  wishText = ""
+
+  addWishes(){
+    this.items.push(new wishItem(this.wishText));
+    this.wishText = ''
+
+  }
 
   toggleItem(item: wishItem) {
     item.isComplete = !item.isComplete;

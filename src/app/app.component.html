@@ -7,9 +7,12 @@
         class="form-control border border border-warning rounded-5"
         type="text"
         placeholder="Write new Wish Item"
+        [(ngModel)]="wishText"
+        [ngModelOptions]="{standalone: true}"
+        name="wish-text"
       />
       <button
-      (click)="$event.preventDefault();"
+      (click)="$event.preventDefault(); addWishes()"
       type="submit" class="btn btn-primary mx-3">
       Submit
     </button>
