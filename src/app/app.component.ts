@@ -20,6 +20,7 @@ export class AppComponent {
   title = 'whishlist';
   wishText = "";
   filter:string = '0';
+  visibleItems : wishItem[]= this.items;
 
   addWishes(){
     this.items.push(new wishItem(this.wishText));
@@ -28,7 +29,15 @@ export class AppComponent {
   }
 
   filterChange(value:any){
-    console.log(value)
+    if(value==='0'){
+      this.visibleItems= this.items;
+    }
+    else if(value === '1'){
+      this.visibleItems = this.items.filter(item=>!item.isComplete)
+    }
+    else {
+      this.visibleItems = this.items.filter(item=>item.isComplete)
+    }
   }
 
   toggleItem(item: wishItem) {
