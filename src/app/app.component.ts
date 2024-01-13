@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/wishItems';
 import { FormsModule } from '@angular/forms';
-
+import { WishItemsComponent } from './wish-item/wish-item.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FormsModule],
+  imports: [CommonModule, RouterOutlet,FormsModule, WishItemsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -41,10 +41,7 @@ export class AppComponent {
     }
   }
 
-  toggleItem(item : WishItem) {
-    item.isComplete = !item.isComplete;
-    console.log(item);
-  }
+
 }
 
   // filterChange(value:any){

@@ -6,10 +6,7 @@
       <input type="text" name="new-wish-text" class="form-control border border-success" [(ngModel)]="newWishText">
     </div>
     <div class="col-auto">
-      <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="$event.preventDefault(); addNewWish()">
+      <button type="submit" class="btn btn-primary" (click)="$event.preventDefault(); addNewWish()">
         Add Wish
       </button>
     </div>
@@ -17,11 +14,8 @@
 
   <div class="row mt-3">
     <div class="col-sm-2 ">
-      <select
-        class="form-select border border-primary"
-        [(ngModel)]="listFilter"
-        (ngModelChange)="filterChanged($event)"
-      >
+      <select class="form-select border border-primary" [(ngModel)]="listFilter"
+        (ngModelChange)="filterChanged($event)">
         <option value="0">All</option>
         <option value="1">Unfulfilled</option>
         <option value="2">Fulfilled</option>
@@ -29,30 +23,12 @@
     </div>
   </div>
 
+
+
   <div class="row mt-3">
-    <div *ngIf="visibleItems.length === 0; else showItems">
-      There are no wishes to display.
-    </div>
+    <app-wish-item [wishes]="visibleItems"></app-wish-item>
 
-    <ng-template #showItems>
-      <ul class="wish-list ">
-        <li *ngFor="let item of visibleItems; index as ii">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input
-                  class="checkbox"
-                  type="checkbox"
-                  [checked]="item.isComplete"
-                  [attr.data-index]="ii"
-                  (click)="toggleItem(item)"
-                > {{item.wishItem}}
-              </label>
-            </div>
-        </li>
-      </ul>
-    </ng-template>
   </div>
-
 
 
 </div>
