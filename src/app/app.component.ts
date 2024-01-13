@@ -4,10 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/wishItems';
 import { FormsModule } from '@angular/forms';
 import { WishItemsComponent } from './wish-item/wish-item.component';
+import { WishFormComponent } from './wish-form/wish-form.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FormsModule, WishItemsComponent],
+  imports: [CommonModule, RouterOutlet,FormsModule, WishItemsComponent,WishFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -19,17 +20,10 @@ export class AppComponent {
   ];
 
   listFilter : String = '0';
-
-  newWishText  = '';
-
   title = 'wishlist';
-
   visibleItems : WishItem[] = this.items;
 
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText));
-    this.newWishText = '';
-  }
+
 
   filterChanged(value: any) {
     if (value === '0') {
