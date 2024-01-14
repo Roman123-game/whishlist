@@ -5,10 +5,14 @@ import { WishItem } from '../shared/wishItems';
 import { FormsModule } from '@angular/forms';
 import { WishItemsComponent } from './wish-item/wish-item.component';
 import { WishFormComponent } from './wish-form/wish-form.component';
+import { WishFilterComponent } from './wish-filter/wish-filter.component';
+
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FormsModule, WishItemsComponent,WishFormComponent],
+  imports: [CommonModule, RouterOutlet,FormsModule, WishItemsComponent,WishFormComponent,WishFilterComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
