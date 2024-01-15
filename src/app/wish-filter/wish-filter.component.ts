@@ -13,7 +13,6 @@ export class WishFilterComponent {
   @Input() filter:String=''
   @Output() filterChanged =new EventEmitter<any>();
 
-  selectedValue :String = ""
 
   returnValue(filter: any) {
     this.filterChanged.emit(filter)
