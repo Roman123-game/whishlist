@@ -8,7 +8,7 @@
     <ul class="wish-list ">
       <li *ngFor="let item of wishes; index as ii">
           <div class="form-check" id="wishlist_checkbox">
-            <label class="form-check-label">
+            <label class="form-check-label" [ngClass]="item.isComplete ? 'strikeout' : ''">
               <input
                 class="checkbox"
                 type="checkbox"
