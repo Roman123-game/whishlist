@@ -1,4 +1,4 @@
-import { Component, Output,EventEmitter } from '@angular/core';
+import { Component, Output,EventEmitter,Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -10,12 +10,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './wish-filter.component.css'
 })
 export class WishFilterComponent {
-  @Output() filter =new EventEmitter<any>();
+  @Input() filter:String=''
+  @Output() filterChanged =new EventEmitter<any>();
 
-  listFilter : String = '0';
   selectedValue :String = ""
 
-  returnValue(value: any) {
-    this.filter.emit(value)
+  returnValue(filter: any) {
+    this.filterChanged.emit(filter)
 }
 }

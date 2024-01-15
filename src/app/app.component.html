@@ -6,7 +6,8 @@
 
   <div class="row mt-3">
 <app-wish-filter
-(filter)="filterChanged($event)"
+(filterChanged)="filterChanged($event)"
+[filter]="listFilter"
 ></app-wish-filter>
   </div>
 
