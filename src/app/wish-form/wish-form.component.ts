@@ -1,5 +1,5 @@
 import { Component,Output,EventEmitter } from '@angular/core';
-import { WishItem } from '../../shared/wishItems';
+import { WishItem } from '../../shared/models/wishitems';
 import { FormsModule } from '@angular/forms';
 
 @Component({

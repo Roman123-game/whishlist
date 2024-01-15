@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { WishItem } from '../shared/wishItems';
+import { WishItem } from '../shared/models/wishitems';
 import { FormsModule } from '@angular/forms';
 import { WishItemsComponent } from './wish-item/wish-item.component';
 import { WishFormComponent } from './wish-form/wish-form.component';
 import { WishFilterComponent } from './wish-filter/wish-filter.component';
+import events from '../shared/services/eventService'
 
 
 
@@ -38,7 +39,13 @@ export class AppComponent {
       this.visibleItems = this.items.filter(item => item.isComplete);
     }
   }
-
+         constructor(){
+          events.listen('removeItem',(items:any)=>{
+            console.log(items.wishItem);
+            const afterfilter = this.visibleItems.filter(visible=>visible.wishItem !== items.wishItem)
+            this.visibleItems = afterfilter
+          })
+         }
 
 }
 
