@@ -42,7 +42,7 @@ export class AppComponent {
          constructor(){
           events.listen('removeItem',(items:any)=>{
             console.log(items.wishItem);
-            const afterfilter = this.visibleItems.filter(visible=>visible.wishItem !== items.wishItem)
+            const afterfilter = this.visibleItems.filter(ite=>ite.wishItem !== items.wishItem)
             this.visibleItems = afterfilter
           })
          }
